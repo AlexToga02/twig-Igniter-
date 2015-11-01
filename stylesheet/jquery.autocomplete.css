@@ -1,0 +1,31 @@
+.ac_results { padding:0px 0 0px 5px; background-color: white; overflow: hidden; z-index: 99999; border:1px solid #ccc; border-top:0;
+	box-shadow:0 0px 4px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow:0 0px 4px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow:0 0px 4px rgba(0, 0, 0, 0.2); max-height:325px!important; width:475px!important;}
+#header.style2 .ac_results{width:250px!important;}
+.ac_results ul { width: 100%; list-style-position: outside; list-style: none; padding: 0; margin: 0; }
+.ac_results li { margin: 0px; padding: 2px 5px; cursor: default; display: block; /* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font: menu; font-size: 13px; /* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px; overflow: hidden; }
+.ac_loading { background: white url('../image/loading.gif') right center no-repeat; }
+.ac_odd {}
+.ac_over { background-color: #f1f0f0;}
+@media screen and (max-width:800px) {
+.ac_results{width:90%!important;}
+
+}
+@media screen and (max-width:480px) {
+.ac_results{width:85%!important;}
+
+}
+@media screen and (max-width:320px) {
+.ac_results{width:81%!important;}
+
+}

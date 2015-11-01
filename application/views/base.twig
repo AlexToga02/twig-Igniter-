@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="es">
+  <head>
+    {% block head %}
+      <meta charset="UTF-8" />
+      <title> {% block title %} KIKO AUTOPARTES ELECTRICAS {% endblock %}</title>
+      <meta name="description" content="A Clean and fully responsive theme, elegant design for a beautiful eCommerce online store." />
+      <link href="http://demo.harnishdesign.net/opencart/bigshop/image/data/cart.png" rel="icon" />
+      <meta name="HandheldFriendly" content="True" /><meta name="MobileOptimized" content="320" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+      <link rel="stylesheet" type="text/css" href="stylesheet/stylesheet.css" />
+      <link rel="stylesheet" type="text/css" href="stylesheet/slideshow.css" media="screen" />
+      <script type="text/javascript" src="jquery/jquery-1.7.1.min.js"></script>
+      <script type="text/javascript" src="jquery/ui/jquery-ui-1.8.16.custom.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="stylesheet/jquery-ui-1.8.16.custom.css" />
+      <script type="text/javascript" src="jquery/jquery.cookie.js"></script>
+      <script type="text/javascript" src="jquery/jquery.colorbox.js"></script>
+      <link rel="stylesheet" type="text/css" href="stylesheet/colorbox.css" media="screen" />
+      <script type="text/javascript" src="jquery/tabs.js"></script>
+      <script type="text/javascript" src="jquery/common.js"></script>
+      <script type="text/javascript" src="jquery/custom.js"></script>
+      <script src="jquery.autocomplete.js" type="text/javascript"></script>
+      <link rel="stylesheet" type="text/css" href="stylesheet/jquery.autocomplete.css" />
+
+
+      <script type="text/javascript">
+      $(document).ready(function() {
+        $("#filter_name").autocomplete("getdata.php?lan=en", {
+          width: 260,
+          matchContains: true,
+          selectFirst: true
+        });
+      });
+      </script>
+      <script type="text/javascript" src="jquery/jquery.nivo.slider.pack.js"></script>
+      <link href='//fonts.googleapis.com/css?family=&v1' rel='stylesheet' type='text/css'>
+        <style type="text/css">
+      body {    background-color: #F6F6F4;
+         background-image: url("imagenes/10.png");
+       }
+      a.button, input.button, .box-product > div .cart a.button:hover, .box-product > div .cart input.button:hover, .product-grid > div .cart a.button:hover, .product-grid > div .cart input.button:hover, .product-list > div .cart a.button:hover, .product-info .price-tag, .product-list > div .cart input.button:hover, #header #cart .heading h4, .pagination .links b, #button-cart{
+       background-color: #00318C;
+      }
+      #header #welcome a:hover, #header .links:hover, #currency:hover, #language:hover, .box-product .price, .box-category > ul > li ul li a:hover, .list-item a:hover, .box-category > ul > li > ul > li a.active, .box-product .name a:hover, .product-list .name a:hover, .product-list .price, .product-grid .wishlist a:hover, .product-grid .compare a:hover, .product-list .wishlist a:hover, .product-list .compare a:hover, .pagination .links a:hover, .product-grid .price, .product-grid .name a:hover, .product-info .price, a.wishlist:hover, .product-info .review a:hover, .sitemap li a:hover, .breadcrumb a:hover{
+      color: #00318C;
+      }
+      .pagination .links b, .box .box-heading span{
+      border-color: #00318C;
+      }
+        #menu{
+       background-color: #AB0404;
+      }
+      #menu > ul > li:hover > a, #menu > ul > li > div{
+       background-color: #00318C;
+      }
+      #menu > ul > li > a, #menu > span {
+       color: #FFFFFF;
+      }
+
+          body, p { font-family:Helvetica; }
+
+
+          .welcome, h1, h2, h3, .box .box-heading, .checkout-heading, .manufacturer-heading{
+            font-family:Trebuchet MS;
+          }
+          </style>
+      {% endblock %}
+  </head>
+  <body>
+  <div class="main-wrapper">
+      <div id="header">
+            <div id="welcome">
+
+                   <a href="log_in.php">Inicia sesión</a>
+                   <a href="">(Usuario</a> <a href=""> Cerrar)</a>
+            </div>
+             <div id="logo"><a href=""><img src="imagenes/logo_.png" title="Kiko Ramirez" alt="Kiko Ramirez" /></a></div>
+            <div id="search">
+               <form action="resultados.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+                          <div class="button-search"></div>
+                           <div id="dElements" ></div>
+                       <div id="dBody"></div><input type="text" id="buscar_" name="buscar_" placeholder="Buscar el artículo clave o nombre " placeholder data-value=" Buscar "
+                        onkeypress="forma.submit()" />
+                       <!--  <button type="submit" class="button" >Buscar</button>-->
+                   </form>
+              </div>
+
+              <div id="cart1">
+                <div class="heading1">
+                    <div >
+
+                     </div>
+                    </div>
+              </div>
+      </div>
+      <div id="menu">
+        <span>Menu</span>
+        <ul>
+              <li class="home"><a  title="Home" href=""><span>Home</span></a></li>
+              <li><a href="">Kiko Ramirez</a>
+                </li>
+              <li><a href="index.php">Nuestros Productos</a>
+                </li>
+              <li><a href="sucursales.php">Sucursales</a>
+                </li>
+              <li><a href="contacto.php">Contactanos</a>
+          </ul>
+      </div>
+  <div id="container">
+      <div id="notification"></div>
+      <div id="column-left">
+          <script type="text/javascript" src="http://demo.harnishdesign.net/opencart/bigshop/catalog/view/theme/bigshop/js/jquery.dcjqaccordion.js"></script>
+      <div class="box">
+              <div class="box-heading">Busqueda Avanzada</div>
+        <div class="box-content box-category">
+            <ul id="cat_accordion3">
+            <select id="grupos" name="grupos" >
+              <option value=""></option>
+            </select>
+            <script type="text/javascript">
+              $(document).ready(function(){
+                        var url="http://comerma.no-ip.net:8081/wsdesarrolloPEDIDOS1/pedidos.asmx/DTGRUPOSWEB";
+                        $('#grupos').html("");
+                        $.getJSON(url,function(clientes){
+                        $.each(clientes, function(i,cliente){
+                        ihtml = " <option value='"+ cliente.GRUPO_LINEA_ID  +"'>"+cliente.NOMBRE+"</option> ";
+                        $('#grupos').html($("#grupos").html()+ihtml);
+                        });
+                        });
+                        });
+              </script>
+               <br>
+               <br>
+              <select id="marcas" name="marcas" >
+                <option value=""></option>
+              </select>
+              <script type="text/javascript">
+                $(document).ready(function(){
+                          var url="http://comerma.no-ip.net:8081/wsdesarrolloPEDIDOS1/pedidos.asmx/DTGRUPOSWEB";
+                          $('#marcas').html("");
+                          $.getJSON(url,function(clientes){
+                          $.each(clientes, function(i,cliente){
+                          ihtml = " <option value='"+ cliente.GRUPO_LINEA_ID  +"'>"+cliente.NOMBRE+"</option> ";
+                          $('#marcas').html($("#marcas").html()+ihtml);
+                          });
+                          });
+                          });
+                </script>
+
+          <br>
+           <br>
+          <input type="submit" value=" Buscar " class="button" />
+          <li class="custom_id253">
+
+          </li>
+
+        </ul>
+        </div>
+      </div>
+      <div class="box">
+          <div class="box-heading">DESCUENTOS</div>
+          <div class="box-content">
+            <div  id="contenido" class="box-product">
+               <p><center><img src="loading.gif"></center></p>
+                <script type="text/javascript">
+                      $(document).ready(function(){
+                            var url="http://comerma.no-ip.net:8081/wsdesarrolloPEDIDOS1/pedidos.asmx/DTArticulosDescuentos";
+                            $('#contenido').html("");
+                            $.getJSON(url,function(clientes){
+                              $.each(clientes, function(i,cliente){
+                                ihtml ="  <div> <div class='image'><a href='http://portaldigital.mx/kikoramirez/detalleproducto.php?idart="+ cliente.ARTICULO_ID +"&nom="+ cliente.NOMBRE +"'><img src='http://portaldigital.mx/imakiko/"+ cliente.CLAVE + "-1.jpg' alt='"+ cliente.CLAVE + "' width='60' height='60' /></a></div>"+
+                                "<div class='name'><a href=''>"+ cliente.NOMBRE +"</a></div>"+"<div class='price'>$ "+cliente.PRECIODELISTA+"</div><div>";
+                                 $('#contenido').html($("#contenido").html()+ihtml);
+                              });
+                            });
+                        });
+                </script>
+                            </div>
+                          </div>
+            </div>
+            <div class="box">
+              <div class="box-content">
+                <div class="box-product">
+                  </div>
+              </div>
+            </div>
+          </div>
+
+  <div id="content"><!--<div class="welcome">Welcome to Bigshop</div>-->
+
+   <div class="slider-wrapper">
+    <div id="slideshow0" class="nivoSlider">
+                  <a href=""><img src="imagenes/b1.jpg" alt="slideshow-4" /></a>
+                  <a href=""><img src="imagenes/b2.jpg" alt="slideshow-4" /></a>
+      </div>
+  </div>
+  <script type="text/javascript"><!--
+  $(document).ready(function() {
+    $('#slideshow0').nivoSlider();
+  });
+  --></script><h1 style="display: none;">KIKO AUTOPARTES ELECTRICAS</h1>
+  <div class="box">
+
+    <div class="box-heading">NOVEDADES</div>
+    <div class="box-content">
+          <div  id="contenido2" class="box-product">
+               <p><center><img src="loading.gif"></center></p>
+                <script type="text/javascript">
+
+                      $(document).ready(function(){
+                            var url="http://comerma.no-ip.net:8081/wsdesarrolloPEDIDOS1/pedidos.asmx/DTArticulosNovedades";
+                            $('#contenido2').html("");
+                            $.getJSON(url,function(clientes){
+                            $.each(clientes, function(i,cliente){
+
+                            ihtml ="  <div> <div class='image'><a href='http://portaldigital.mx/kikoramirez/detalleproducto.php?idart="+ cliente.ARTICULO_ID +"&nom="+ cliente.NOMBRE +"'><img src='http://portaldigital.mx/imakiko/"+ cliente.CLAVE + "-1.jpg' alt='"+ cliente.CLAVE + "' width='152' height='152' /></a></div>"+
+                            "<div class='name'><a href=''>"+ cliente.NOMBRE +"</a></div>"+"<div class='price'>$ "+cliente.PRECIODELISTA+"</div>"+
+                            "<div class='cart'><input type='button' value='Detalle' onclick='http://portaldigital.mx/kikoramirez/detalleproducto.php?idart="+ cliente.ARTICULO_ID +"&nom="+ cliente.NOMBRE +"' class='button' /></div><div>";
+
+                             $('#contenido2').html($("#contenido2").html()+ihtml);
+                            });
+                            });
+                            });
+
+                  </script>
+                </div>
+              </div>
+          </div>
+    </div> <!--div class box-content -->
+
+  <div class="clear"></div>
+  <div class="social-part">
+      <div id="facebook" >
+      <div class="facebook-inner">
+      <div id="fb-root"></div>
+      <div class="fb-like-box" data-href="http://www.facebook.com/160281810726316" data-width="585" data-show-faces="true" data-stream="false" data-header="false" data-border-color="#fff"></div>
+      </div></div>
+  </div><!--div class social-part-->
+</div>  <!--div class box-->
+  </div>
+
+  <div id="footer">
+     <div class="column">
+      <h3>Información</h3>
+      <ul>
+              <li><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=information/information&amp;information_id=3">Politica de Privacidad</a></li>
+
+            </ul>
+    </div>
+      <div class="column">
+      <h3>Contacto</h3>
+      <ul>
+        <li><a href="">Contactanos</a></li>
+        <li><a href="">Sucursales</a></li>
+      </ul>
+    </div>
+  <div class="contact">
+    <ul>
+    <li class="address">CALLE GALEANA #3, MORELOS, MZA 043 Villa de Álvarez, Colima. CP.  28977  </li>
+    <li class="mobile">312 39 67234</li>
+    <li class=""></li>
+    </ul>
+  </div>
+
+  <div class="social">
+          <!--       <a href="https://www.facebook.com/pages/El%C3%A9ctricos-de-la-Villa/578007438884846" target="_blank"> <img src="imagenes/facebook.png" alt="Facebook" title="Facebook"></a>
+   -->
+   </div>
+
+  <div class="clear"></div>
+  <div id="powered">
+     Desarrollado <a target="_blank" href="http://www.cticonsultorias.com">Cti consultorias &copy; 2014 &nbsp;&nbsp; </a>
+
+    <div class="payments_types">
+    <img src="imagenes/banamex.png" alt="banamex" title="Tarjetas Banamex"><img src="imagenes/payment_american.png" alt="american-express" title="American Express"><img src="imagenes/visa.png" alt="VISA" title="VISA"><img src="imagenes/master.png" alt="MasterCard" title="MasterCard"></div>
+  </div>
+
+  </div>
+  <script type="jquery/jquery.easing-1.3.min.js"></script>
+  <script type="jquery/cloud_zoom.js"></script>
+  <script src="js/script.js"></script>
+  </body>
+</html>

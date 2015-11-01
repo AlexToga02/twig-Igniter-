@@ -1,0 +1,72 @@
+/*Stylesheet products search engine*/
+
+#dElements{
+	width:100%;
+	height:auto;
+	float:left;
+	padding-top:15px;
+	padding-left:25px;
+}
+select{
+	width:100%;
+	text-align:center;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:10px;
+	padding-right:10px;
+    border:1px solid #CCCCCC;	
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright:3px;
+    -moz-border-radius-bottomleft:3px;
+    -moz-border-radius-bottomright:3px;
+    -webkit-border-top-left-radius:3px;
+    -webkit-border-top-right-radius:3px;
+    -webkit-border-bottom-left-radius:3px;
+    -webkit-border-bottom-right-radius:3px;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+}
+hr{
+	color:#F4F4F4;
+	background:#F4F4F4;
+}
+#dBody{
+	width:100%;
+	min-heigth:100px;
+	float:left;
+	background:#FFFFFF;
+}
+
+#dPagintator{
+	float:left;
+	width:99%;
+	min-height:30px;
+	border:1px solid #CCCCCC;
+	text-align:center;
+}
+
+#dDescription{
+	margin-left:15px;
+	margin-right:15px;
+	margin-top:15px;
+	margin-bottom:15px;
+	width:100%;
+	float:left;
+}
+#dContProduct{
+	float:left;
+	width:100%;
+	min-heigth:50px;
+}
+#dContImg{
+	width:400px;
+	min-height:50px;
+	float:left;
+}
+#dContDescription{
+	float:left;
+	margin-left:15px;
+	width:400px;
+}
