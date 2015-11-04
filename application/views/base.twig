@@ -69,10 +69,12 @@
   <body>
   <div class="main-wrapper">
       <div id="header">
-            <div id="welcome">
 
+            <div id="welcome">
+                {% block encabezado %}
                    <a href="log_in.php">Inicia sesión</a>
                    <a href="">(Usuario</a> <a href=""> Cerrar)</a>
+                  {% endblock %}
             </div>
              <div id="logo"><a href=""><img src="imagenes/logo_.png" title="Kiko Ramirez" alt="Kiko Ramirez" /></a></div>
             <div id="search">
@@ -93,6 +95,7 @@
                      </div>
                     </div>
               </div>
+
       </div>
       <div id="menu">
         <span>Menu</span>
@@ -112,6 +115,7 @@
       <div id="column-left">
           <script type="text/javascript" src="http://demo.harnishdesign.net/opencart/bigshop/catalog/view/theme/bigshop/js/jquery.dcjqaccordion.js"></script>
       <div class="box">
+          {% block BusquedaAvanzada %}
               <div class="box-heading">Busqueda Avanzada</div>
         <div class="box-content box-category">
             <ul id="cat_accordion3">
@@ -157,10 +161,15 @@
 
         </ul>
         </div>
+        {% endblock %}
       </div>
+
       <div class="box">
+
+
           <div class="box-heading">DESCUENTOS</div>
           <div class="box-content">
+
             <div  id="contenido" class="box-product">
                <p><center><img src="loading.gif"></center></p>
                 <script type="text/javascript">
@@ -185,10 +194,14 @@
                 </div>
               </div>
             </div>
+
+
           </div>
 
 
-  <div id="content"><!--<div class="welcome">Welcome to Bigshop</div>-->
+
+
+  <div id="content">
   {% block contenido %}
    <div class="slider-wrapper">
     <div id="slideshow0" class="nivoSlider">
