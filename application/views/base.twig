@@ -182,24 +182,25 @@
             <div class="box">
               <div class="box-content">
                 <div class="box-product">
-                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-  <div id="content"><!--<div class="welcome">Welcome to Bigshop</div>-->
 
+  <div id="content"><!--<div class="welcome">Welcome to Bigshop</div>-->
+  {% block contenido %}
    <div class="slider-wrapper">
     <div id="slideshow0" class="nivoSlider">
                   <a href=""><img src="imagenes/b1.jpg" alt="slideshow-4" /></a>
                   <a href=""><img src="imagenes/b2.jpg" alt="slideshow-4" /></a>
       </div>
   </div>
-  <script type="text/javascript"><!--
-  $(document).ready(function() {
-    $('#slideshow0').nivoSlider();
-  });
-  --></script><h1 style="display: none;">KIKO AUTOPARTES ELECTRICAS</h1>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('#slideshow0').nivoSlider();
+    });
+  </script>
   <div class="box">
 
     <div class="box-heading">NOVEDADES</div>
@@ -207,7 +208,6 @@
           <div  id="contenido2" class="box-product">
                <p><center><img src="loading.gif"></center></p>
                 <script type="text/javascript">
-
                       $(document).ready(function(){
                             var url="http://comerma.no-ip.net:8081/wsdesarrolloPEDIDOS1/pedidos.asmx/DTArticulosNovedades";
                             $('#contenido2').html("");
@@ -238,6 +238,8 @@
       </div></div>
   </div><!--div class social-part-->
 </div>  <!--div class box-->
+
+  {% endblock %}
   </div>
 
   <div id="footer">
