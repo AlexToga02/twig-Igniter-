@@ -97,11 +97,13 @@
               </div>
 
       </div>
+
       <div id="menu">
+          {% block menu %}
         <span>Menu</span>
         <ul>
               <li class="home"><a  title="Home" href=""><span>Home</span></a></li>
-              <li><a href="">Kiko Ramirez</a>
+              <li><a href="#">Kiko Ramirez</a>
                 </li>
               <li><a href="index.php">Nuestros Productos</a>
                 </li>
@@ -109,153 +111,263 @@
                 </li>
               <li><a href="contacto.php">Contactanos</a>
           </ul>
+          {% endblock %}
       </div>
-  <div id="container">
-      <div id="notification"></div>
-      <div id="column-left">
-          <script type="text/javascript" src="http://demo.harnishdesign.net/opencart/bigshop/catalog/view/theme/bigshop/js/jquery.dcjqaccordion.js"></script>
+      <div id="container">
+      <div id="notification"></div><div id="column-left">
+        {% block column_left %}
+              <script type="text/javascript" src="http://demo.harnishdesign.net/opencart/bigshop/catalog/view/theme/bigshop/js/jquery.dcjqaccordion.js"></script>
+
+
       <div class="box">
-          {% block BusquedaAvanzada %}
-              <div class="box-heading">Busqueda Avanzada</div>
+        {% block box_busqueda %}
+        <div class="box-heading">Busqueda Avanzada</div>
+
         <div class="box-content box-category">
-            <ul id="cat_accordion3">
-            <select id="grupos" name="grupos" >
-              <option value=""></option>
-            </select>
-            <script type="text/javascript">
-              $(document).ready(function(){
-                        var url="http://comerma.no-ip.net:8081/wsdesarrolloPEDIDOS1/pedidos.asmx/DTGRUPOSWEB";
-                        $('#grupos').html("");
-                        $.getJSON(url,function(clientes){
-                        $.each(clientes, function(i,cliente){
-                        ihtml = " <option value='"+ cliente.GRUPO_LINEA_ID  +"'>"+cliente.NOMBRE+"</option> ";
-                        $('#grupos').html($("#grupos").html()+ihtml);
-                        });
-                        });
-                        });
-              </script>
-               <br>
-               <br>
-              <select id="marcas" name="marcas" >
-                <option value=""></option>
-              </select>
-              <script type="text/javascript">
-                $(document).ready(function(){
-                          var url="http://comerma.no-ip.net:8081/wsdesarrolloPEDIDOS1/pedidos.asmx/DTGRUPOSWEB";
-                          $('#marcas').html("");
-                          $.getJSON(url,function(clientes){
-                          $.each(clientes, function(i,cliente){
-                          ihtml = " <option value='"+ cliente.GRUPO_LINEA_ID  +"'>"+cliente.NOMBRE+"</option> ";
-                          $('#marcas').html($("#marcas").html()+ihtml);
-                          });
-                          });
-                          });
-                </script>
+          <ul id="cat_accordion3">
 
-          <br>
-           <br>
-          <input type="submit" value=" Buscar " class="button" />
-          <li class="custom_id253">
 
-          </li>
+        <select id="grupos" name="grupos" >
+          <option value=""></option>
+        </select>
+        <script type="text/javascript">
+          $(document).ready(function(){
+                    var url="http://comerma.no-ip.net:8081/wsdesarrolloPEDIDOS1/pedidos.asmx/DTGRUPOSWEB";
+                    $('#grupos').html("");
+                    $.getJSON(url,function(clientes){
+                    $.each(clientes, function(i,cliente){
+                    ihtml = " <option value='"+ cliente.GRUPO_LINEA_ID  +"'>"+cliente.NOMBRE+"</option> ";
+                    $('#grupos').html($("#grupos").html()+ihtml);
+                    });
+                    });
+                    });
+          </script>
+         <br>
+         <br>
+        <select id="marcas" name="marcas" >
+          <option value=""></option>
+        </select>
+        <script type="text/javascript">
+          $(document).ready(function(){
+                    var url="http://comerma.no-ip.net:8081/wsdesarrolloPEDIDOS1/pedidos.asmx/DTGRUPOSWEB";
+                    $('#marcas').html("");
+                    $.getJSON(url,function(clientes){
+                    $.each(clientes, function(i,cliente){
+                    ihtml = " <option value='"+ cliente.GRUPO_LINEA_ID  +"'>"+cliente.NOMBRE+"</option> ";
+                    $('#marcas').html($("#marcas").html()+ihtml);
+                    });
+                    });
+                    });
+          </script>
 
-        </ul>
+            <br>
+             <br>
+            <input type="submit" value=" Buscar " class="button" />
+            <li class="custom_id253">
+
+            </li>
+
+          </ul>
+
         </div>
         {% endblock %}
       </div>
 
       <div class="box">
+        {% block box_novedades %}
+        <div class="box-heading">Novedades</div>
+        <div class="box-content">
+          <div class="box-product">
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=49"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/samsung_tab_1-60x60.jpg" alt="Chair Swing" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=49">Chair Swing</a></div>
+                      <div class="price">
+                          $236.99                  </div>
 
 
-          <div class="box-heading">DESCUENTOS</div>
-          <div class="box-content">
-
-            <div  id="contenido" class="box-product">
-               <p><center><img src="loading.gif"></center></p>
-                <script type="text/javascript">
-                      $(document).ready(function(){
-                            var url="http://comerma.no-ip.net:8081/wsdesarrolloPEDIDOS1/pedidos.asmx/DTArticulosDescuentos";
-                            $('#contenido').html("");
-                            $.getJSON(url,function(clientes){
-                              $.each(clientes, function(i,cliente){
-                                ihtml ="  <div> <div class='image'><a href='http://portaldigital.mx/kikoramirez/detalleproducto.php?idart="+ cliente.ARTICULO_ID +"&nom="+ cliente.NOMBRE +"'><img src='http://portaldigital.mx/imakiko/"+ cliente.CLAVE + "-1.jpg' alt='"+ cliente.CLAVE + "' width='60' height='60' /></a></div>"+
-                                "<div class='name'><a href=''>"+ cliente.NOMBRE +"</a></div>"+"<div class='price'>$ "+cliente.PRECIODELISTA+"</div><div>";
-                                 $('#contenido').html($("#contenido").html()+ihtml);
-                              });
-                            });
-                        });
-                </script>
-                            </div>
-                          </div>
+              <div class="rating"><img src="catalog/view/theme/bigshop/image/stars-3.png" alt="Based on 1 reviews." /></div>
+                      <div class="cart"><input type="button" value="Detalle" onclick="addToCart('49');" class="button" /></div>
             </div>
-            <div class="box">
-              <div class="box-content">
-                <div class="box-product">
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=48"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/ipod_classic_1-60x60.jpg" alt="iPad Classic" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=48">iPad Classic</a></div>
+                      <div class="price">
+                          $119.50                  </div>
+
+                      <div class="cart"><input type="button" value="Detalle" onclick="addToCart('48');" class="button" /></div>
+            </div>
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=47"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/hp_1-60x60.jpg" alt="Casual Saddle Shoes" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=47">Casual Saddle Shoes</a></div>
+                      <div class="price">
+                          $119.50                  </div>
+
+                      <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('47');" class="button" /></div>
+            </div>
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=46"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/sony_vaio_1-60x60.jpg" alt="Silver Cuff Bracelet" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=46">Silver Cuff Bracelet</a></div>
+                      <div class="price">
+                          $1,177.00                  </div>
+
+                      <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('46');" class="button" /></div>
+            </div>
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=45"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/macbook_pro_1-60x60.jpg" alt="MacBook Pro" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=45">MacBook Pro</a></div>
+                      <div class="price">
+                          $2,000.00                  </div>
+
+                      <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('45');" class="button" /></div>
+            </div>
                 </div>
-              </div>
-            </div>
-
-
-          </div>
-
-
-
-
-  <div id="content">
-  {% block contenido %}
-   <div class="slider-wrapper">
-    <div id="slideshow0" class="nivoSlider">
-                  <a href=""><img src="imagenes/b1.jpg" alt="slideshow-4" /></a>
-                  <a href=""><img src="imagenes/b2.jpg" alt="slideshow-4" /></a>
+        </div>
+        {% endblock %}
       </div>
-  </div>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('#slideshow0').nivoSlider();
-    });
-  </script>
-  <div class="box">
-
-    <div class="box-heading">NOVEDADES</div>
-    <div class="box-content">
-          <div  id="contenido2" class="box-product">
-               <p><center><img src="loading.gif"></center></p>
-                <script type="text/javascript">
-                      $(document).ready(function(){
-                            var url="http://comerma.no-ip.net:8081/wsdesarrolloPEDIDOS1/pedidos.asmx/DTArticulosNovedades";
-                            $('#contenido2').html("");
-                            $.getJSON(url,function(clientes){
-                            $.each(clientes, function(i,cliente){
-
-                            ihtml ="  <div> <div class='image'><a href='http://portaldigital.mx/kikoramirez/detalleproducto.php?idart="+ cliente.ARTICULO_ID +"&nom="+ cliente.NOMBRE +"'><img src='http://portaldigital.mx/imakiko/"+ cliente.CLAVE + "-1.jpg' alt='"+ cliente.CLAVE + "' width='152' height='152' /></a></div>"+
-                            "<div class='name'><a href=''>"+ cliente.NOMBRE +"</a></div>"+"<div class='price'>$ "+cliente.PRECIODELISTA+"</div>"+
-                            "<div class='cart'><input type='button' value='Detalle' onclick='http://portaldigital.mx/kikoramirez/detalleproducto.php?idart="+ cliente.ARTICULO_ID +"&nom="+ cliente.NOMBRE +"' class='button' /></div><div>";
-
-                             $('#contenido2').html($("#contenido2").html()+ihtml);
-                            });
-                            });
-                            });
-
-                  </script>
+        <div class="box">
+          {% block box_descuentos %}
+        <div class="box-heading">Descuentos</div>
+        <div class="box-content">
+          <div class="box-product">
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=42"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/apple_cinema_30-60x60.jpg" alt="Apple iPad Retina" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=42">Apple iPad Retina</a></div>
+                      <div class="price">
+                          <span class="price-old">$119.50</span> <span class="price-new">$107.75</span>
+                        </div>
+                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('42');" class="button" /></div>
+            </div>
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=30"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/canon_eos_5d_1-60x60.jpg" alt="Canon Digital Camera" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=30">Canon Digital Camera</a></div>
+                      <div class="price">
+                          <span class="price-old">$119.50</span> <span class="price-new">$96.00</span>
+                        </div>
+                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('30');" class="button" /></div>
+            </div>
                 </div>
-              </div>
-          </div>
-    </div> <!--div class box-content -->
+        </div>
+        {% endblock %}
+      </div>
+      {% endblock %}
+        </div>
 
-  <div class="clear"></div>
-  <div class="social-part">
+      <div id="content"><!--<div class="welcome">Welcome to Bigshop</div>-->
+      {% block contenido %}
+       <div class="slider-wrapper">
+        <div id="slideshow0" class="nivoSlider">
+                      <a href="#"><img src="imagenes/b1.jpg" alt="slideshow-4" /></a>
+                      <a href="#"><img src="imagenes/b2.jpg" alt="slideshow-4" /></a>
+
+                </div>
+      </div>
+      <script type="text/javascript"><!--
+      $(document).ready(function() {
+        $('#slideshow0').nivoSlider();
+      });
+      --></script><h1 style="display: none;">Electricos de la villa</h1>
+      <div class="box">
+        <div class="box-heading">Productos mas buscados</div>
+        <div class="box-content">
+          <div class="box-product">
+              <div>
+      			<div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=40"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/iphone_1-152x152.jpg" alt="iPhone" /></a></div>
+      			<div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=40">iPhone</a></div>
+      			<div class="price">
+      				$120.68                  </div>
+      					<div class="rating"><img src="catalog/view/theme/bigshop/image/stars-5.png" alt="Based on 1 reviews." /></div>
+      			<div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('40');" class="button" /></div>
+            </div>
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=49"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/samsung_tab_1-152x152.jpg" alt="Chair Swing" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=49">Chair Swing</a></div>
+                      <div class="price">
+                          $236.99                  </div>
+                              <div class="rating"><img src="catalog/view/theme/bigshop/image/stars-3.png" alt="Based on 1 reviews." /></div>
+                      <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('49');" class="button" /></div>
+            </div>
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=47"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/hp_1-152x152.jpg" alt="Casual Saddle Shoes" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=47">Casual Saddle Shoes</a></div>
+                      <div class="price">
+                          $119.50                  </div>
+                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('47');" class="button" /></div>
+            </div>
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=35"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/bag-152x152.jpg" alt="Bag Lady" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=35">Bag Lady</a></div>
+                      <div class="price">
+                          $119.50                  </div>
+                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('35');" class="button" /></div>
+            </div>
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=32"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/ipod_touch_1-152x152.jpg" alt="Eyewear Eyeglasses" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=32">Eyewear Eyeglasses</a></div>
+                      <div class="price">
+                          $119.50                  </div>
+                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('32');" class="button" /></div>
+            </div>
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=34"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/ipod_shuffle_1-152x152.jpg" alt="Nail Polish" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=34">Nail Polish</a></div>
+                      <div class="price">
+                          $119.50                  </div>
+                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('34');" class="button" /></div>
+            </div>
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=33"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/samsung_syncmaster_941bw-152x152.jpg" alt="Sports Watch Band" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=33">Sports Watch Band</a></div>
+                      <div class="price">
+                          $237.00                  </div>
+                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('33');" class="button" /></div>
+            </div>
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=44"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/macbook_air_1-152x152.jpg" alt="T-shirt Grill" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=44">T-shirt Grill</a></div>
+                      <div class="price">
+                          $1,177.00                  </div>
+                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('44');" class="button" /></div>
+            </div>
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=48"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/ipod_classic_1-152x152.jpg" alt="iPad Classic" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=48">iPad Classic</a></div>
+                      <div class="price">
+                          $119.50                  </div>
+                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('48');" class="button" /></div>
+            </div>
+                  <div>
+                      <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=43"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/macbook_1-152x152.jpg" alt="Fancy Saddle" /></a></div>
+                      <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=43">Fancy Saddle</a></div>
+                      <div class="price">
+                          $589.50                  </div>
+                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('43');" class="button" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endblock %}
+      </div>
+
+
+
+
+      <div class="clear"></div>
+      <div class="social-part">
       <div id="facebook" >
       <div class="facebook-inner">
       <div id="fb-root"></div>
       <div class="fb-like-box" data-href="http://www.facebook.com/160281810726316" data-width="585" data-show-faces="true" data-stream="false" data-header="false" data-border-color="#fff"></div>
       </div></div>
-  </div><!--div class social-part-->
-</div>  <!--div class box-->
+      </div>
+      </div>
+    </div>
 
-  {% endblock %}
-  </div>
+
+
+
 
   <div id="footer">
+    {% block footer %}
      <div class="column">
       <h3>Información</h3>
       <ul>
@@ -270,13 +382,13 @@
         <li><a href="">Sucursales</a></li>
       </ul>
     </div>
-  <div class="contact">
-    <ul>
-    <li class="address">CALLE GALEANA #3, MORELOS, MZA 043 Villa de Álvarez, Colima. CP.  28977  </li>
-    <li class="mobile">312 39 67234</li>
-    <li class=""></li>
-    </ul>
-  </div>
+    <div class="contact">
+      <ul>
+      <li class="address">CALLE GALEANA #3, MORELOS, MZA 043 Villa de Álvarez, Colima. CP.  28977  </li>
+      <li class="mobile">312 39 67234</li>
+      <li class=""></li>
+      </ul>
+    </div>
 
   <div class="social">
           <!--       <a href="https://www.facebook.com/pages/El%C3%A9ctricos-de-la-Villa/578007438884846" target="_blank"> <img src="imagenes/facebook.png" alt="Facebook" title="Facebook"></a>
@@ -290,7 +402,7 @@
     <div class="payments_types">
     <img src="imagenes/banamex.png" alt="banamex" title="Tarjetas Banamex"><img src="imagenes/payment_american.png" alt="american-express" title="American Express"><img src="imagenes/visa.png" alt="VISA" title="VISA"><img src="imagenes/master.png" alt="MasterCard" title="MasterCard"></div>
   </div>
-
+  {% endblock %}
   </div>
   <script type="jquery/jquery.easing-1.3.min.js"></script>
   <script type="jquery/cloud_zoom.js"></script>
