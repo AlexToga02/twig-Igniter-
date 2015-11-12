@@ -2,10 +2,13 @@
 <html dir="ltr" lang="es">
   <head>
     {% block head %}
+    <base href="{{base_url()}}"></base>
       <meta charset="UTF-8" />
       <title> {% block title %} KIKO AUTOPARTES ELECTRICAS {% endblock %}</title>
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
+      <!-- Bootstrap -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
       <meta name="description" content="A Clean and fully responsive theme, elegant design for a beautiful eCommerce online store." />
       <link href="http://demo.harnishdesign.net/opencart/bigshop/image/data/cart.png" rel="icon" />
       <meta name="HandheldFriendly" content="True" /><meta name="MobileOptimized" content="320" />
@@ -25,8 +28,6 @@
       <script src="jquery.autocomplete.js" type="text/javascript"></script>
       <link rel="stylesheet" type="text/css" href="stylesheet/jquery.autocomplete.css" />
       <link href="css/estilo.css" rel="stylesheet">
-      <!-- Bootstrap -->
-      <link href="css/bootstrap.min.css" rel="stylesheet">
 
       <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
       <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,10 +52,10 @@
          background-image: url("imagenes/10.png");
        }
       a.button, input.button, .box-product > div .cart a.button:hover, .box-product > div .cart input.button:hover, .product-grid > div .cart a.button:hover, .product-grid > div .cart input.button:hover, .product-list > div .cart a.button:hover, .product-info .price-tag, .product-list > div .cart input.button:hover, #header #cart .heading h4, .pagination .links b, #button-cart{
-       background-color: #00318C;
+       background-color: #AB0404;
       }
       #header #welcome a:hover, #header .links:hover, #currency:hover, #language:hover, .box-product .price, .box-category > ul > li ul li a:hover, .list-item a:hover, .box-category > ul > li > ul > li a.active, .box-product .name a:hover, .product-list .name a:hover, .product-list .price, .product-grid .wishlist a:hover, .product-grid .compare a:hover, .product-list .wishlist a:hover, .product-list .compare a:hover, .pagination .links a:hover, .product-grid .price, .product-grid .name a:hover, .product-info .price, a.wishlist:hover, .product-info .review a:hover, .sitemap li a:hover, .breadcrumb a:hover{
-      color: #00318C;
+      color: black;
       }
       .pagination .links b, .box .box-heading span{
       border-color: #00318C;
@@ -78,6 +79,7 @@
           </style>
       {% endblock %}
   </head>
+
   <body>
   <div class="main-wrapper">
       <div id="header">
@@ -290,7 +292,9 @@
       			<div class="price">
       				$120.68                  </div>
       					<div class="rating"><img src="catalog/view/theme/bigshop/image/stars-5.png" alt="Based on 1 reviews." /></div>
-      			<div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('40');" class="button" /></div>
+                {%if user%}
+      			       <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('40');" class="button" /></div>
+                {%endif%}
             </div>
                   <div>
                       <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=49"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/samsung_tab_1-152x152.jpg" alt="Chair Swing" /></a></div>
@@ -298,63 +302,63 @@
                       <div class="price">
                           $236.99                  </div>
                               <div class="rating"><img src="catalog/view/theme/bigshop/image/stars-3.png" alt="Based on 1 reviews." /></div>
-                      <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('49');" class="button" /></div>
+                      {%if user%}<div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('49');" class="button" /></div>{%endif%}
             </div>
                   <div>
                       <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=47"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/hp_1-152x152.jpg" alt="Casual Saddle Shoes" /></a></div>
                       <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=47">Casual Saddle Shoes</a></div>
                       <div class="price">
                           $119.50                  </div>
-                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('47');" class="button" /></div>
+                              {%if user%}<div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('47');" class="button" /></div>{%endif%}
             </div>
                   <div>
                       <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=35"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/bag-152x152.jpg" alt="Bag Lady" /></a></div>
                       <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=35">Bag Lady</a></div>
                       <div class="price">
                           $119.50                  </div>
-                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('35');" class="button" /></div>
+                              {%if user%}<div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('35');" class="button" /></div>{%endif%}
             </div>
                   <div>
                       <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=32"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/ipod_touch_1-152x152.jpg" alt="Eyewear Eyeglasses" /></a></div>
                       <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=32">Eyewear Eyeglasses</a></div>
                       <div class="price">
                           $119.50                  </div>
-                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('32');" class="button" /></div>
+                              {%if user%}<div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('32');" class="button" /></div>{%endif%}
             </div>
                   <div>
                       <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=34"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/ipod_shuffle_1-152x152.jpg" alt="Nail Polish" /></a></div>
                       <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=34">Nail Polish</a></div>
                       <div class="price">
                           $119.50                  </div>
-                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('34');" class="button" /></div>
+                              {%if user%}<div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('34');" class="button" /></div>{%endif%}
             </div>
                   <div>
                       <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=33"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/samsung_syncmaster_941bw-152x152.jpg" alt="Sports Watch Band" /></a></div>
                       <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=33">Sports Watch Band</a></div>
                       <div class="price">
                           $237.00                  </div>
-                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('33');" class="button" /></div>
+                              {%if user%}<div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('33');" class="button" /></div>{%endif%}
             </div>
                   <div>
                       <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=44"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/macbook_air_1-152x152.jpg" alt="T-shirt Grill" /></a></div>
                       <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=44">T-shirt Grill</a></div>
                       <div class="price">
                           $1,177.00                  </div>
-                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('44');" class="button" /></div>
+                              {%if user%}<div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('44');" class="button" /></div>{%endif%}
             </div>
                   <div>
                       <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=48"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/ipod_classic_1-152x152.jpg" alt="iPad Classic" /></a></div>
                       <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=48">iPad Classic</a></div>
                       <div class="price">
                           $119.50                  </div>
-                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('48');" class="button" /></div>
+                              {%if user%}<div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('48');" class="button" /></div>{%endif%}
             </div>
                   <div>
                       <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=43"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/macbook_1-152x152.jpg" alt="Fancy Saddle" /></a></div>
                       <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=43">Fancy Saddle</a></div>
                       <div class="price">
                           $589.50                  </div>
-                              <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('43');" class="button" /></div>
+                              {%if user%}<div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('43');" class="button" /></div>{%endif%}
             </div>
           </div>
         </div>
@@ -424,5 +428,6 @@
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
   <!-- <script src="js/libreria.js"></script> -->
+
   </body>
 </html>

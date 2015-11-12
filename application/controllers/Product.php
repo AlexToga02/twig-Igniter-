@@ -34,8 +34,8 @@ class Product extends CI_Controller {
 		$datos['email']=$this->input->post('email');
 		$datos['user']=$this->input->post('username');
 		$datos['contrasena']=$this->input->post('passwd');
-		print_r($datos);
-	  //$this->db->insert('cliente',$datos);
+		//print_r($datos);
+	  $this->db->insert('cliente',$datos);
 		$this->twig->display('index');
 		//$this->load->view('index.twig');
 		//$this->twig->render('index.twig');
@@ -46,22 +46,22 @@ class Product extends CI_Controller {
 		function login(){
 
 			$user =$this->input->post('cuenta');
-			print_r($user);
+			// print_r($user);
 			$contrasena =$this->input->post('clave');
-			print_r($contrasena);
+			// print_r($contrasena);
 			$res = $this->validaUsuario($user,$contrasena);
-			print_r($res);
+			//print_r($res);
 			if(!empty($res)){
 				$datos = array(
 					'user'=>$res[0]['user'],
 					'nombre'=>$res[0]['nombre'],
 					'categoria'=>0
 				);
-				print_r($datos);
+				//print_r($datos);
 				$this->session->set_userdata($datos);
 				$this->twig->display('login',$datos);
 
-			} else{redirect();}
+			} else{$this->twig->display('index');}
 		}
 
 		function validaUsuario($user,$contrasena){
@@ -81,7 +81,7 @@ class Product extends CI_Controller {
 			$this->session->set_userdata($datos);
 			$this->load->view('inicio');*/
 			$this->session->sess_destroy();
-			redirect();
+			$this->twig->display('index');
 		}
 
 		function validaSession(){
