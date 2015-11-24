@@ -10,6 +10,8 @@ class Admin extends CI_Controller {
 		$this->load->library('Twig');
 
 
+
+
 	}
 
 
@@ -29,7 +31,7 @@ class Admin extends CI_Controller {
 		if (!$this->validaSesion() ){
 			redirect('admin');
 		}else{
-			$this->load->view('sbAdmin/pages/index');
+			$this->twig->display('sbAdmin/pages/index');
 		}
 
 	}
@@ -53,8 +55,21 @@ class Admin extends CI_Controller {
 		if (!$this->validaSesion() ){
 			redirect('admin');
 		}else{
-			$datos['productos']=$this->m_admin->getTipoProducto();
-			$this->load->view('sbAdmin/pages/producto',$datos);
+				try{
+
+
+					$data = array();
+					$data['foo'] = 'This is cool!';
+					$data['bar'] = 'Twig + CodeIgniter rocks!';
+					$data['producto']=$this->m_admin->getTipoProducto();
+
+
+					$this->twig->display('sbAdmin/pages/producto',$data);
+
+				}catch(Exception $e){
+					show_error($e->getMessage().' --- '.$e->getTraceAsString());
+				}
+
 		}
 
 	}
