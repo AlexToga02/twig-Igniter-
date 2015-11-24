@@ -45,12 +45,6 @@ class Admin extends CI_Controller {
 		}
 	}
 
-
-	function altaimagenservicio($mostrar){
-				$this->load->view('sbAdmin/pages/servicio_bien',$mostrar);
-	}
-
-
 	function altaproducto(){
 		if (!$this->validaSesion() ){
 			redirect('admin');
@@ -74,17 +68,6 @@ class Admin extends CI_Controller {
 
 	}
 
-	function altaservicio(){
-		if (!$this->validaSesion() ){
-			redirect('admin');
-		}else{
-			$datos['servicios']=$this->m_admin->getTipoServicio();
-			$this->load->view('sbAdmin/pages/servicio',$datos);
-		}
-	}
-
-
-
 	function eliminaproducto(){
 		if (!$this->validaSesion() )
 			redirect('admin');
@@ -99,10 +82,7 @@ class Admin extends CI_Controller {
 		$this->load->view('sbAdmin/pages/editaProducto',$datos);
 	}
 
-	function editaservicio(){
-		$datos['servicios']=$this->m_admin->getServicio();
-		$this->load->view('sbAdmin/pages/editaServicio',$datos);
-	}
+
 
 
 
@@ -131,25 +111,6 @@ class Admin extends CI_Controller {
 
 	}
 
-	function editService(){
-
-
-		$this->form_validation->set_message('required','El campo es requerido para que se pueda eliminar');
-		$this->form_validation->set_rules('nombre','Nombre','required');
-
-		if($this->form_validation->run()==FALSE){
-			$this->editaservicio();
-
-		}
-		else{
-
-			$idservicio=$this->input->post('nombre');
-			redirect('admin/editarServicio/'.$idservicio);
-		}
-	}
-
-
-
 
 
 	function editarProducto($id){
@@ -163,16 +124,6 @@ class Admin extends CI_Controller {
 		}
 	}
 
-	function editarServicio($id){
-		if (!$this->validaSesion() ){
-			redirect('admin');
-		}else{
-			$datosservicio = $this->m_admin->getIndividualService($id);
-			$datos['servicio']=$datosservicio[0];
-			$datos['tipo']=$this->m_admin->getTipoServicio();
-			$this->load->view('sbAdmin/pages/servicio_editar',$datos);
-		}
-	}
 
 
 
@@ -206,32 +157,6 @@ class Admin extends CI_Controller {
 
 	}
 
-	function updateService(){
-		$this->form_validation->set_message('required','El campo <b>%s</b> es requerido');
-		$this->form_validation->set_message('is_unique','El  <b>%s</b> ya esta existe Don Pancho !!!');
-
-	    $this->form_validation->set_rules('nombre','Nombre','required|is_unique[servicio.nombre]|min_length[2]|max_length[60]');
-	    $this->form_validation->set_rules('tipo','Tipo','required');
-	    $this->form_validation->set_rules('descripcion','Desscripcion','required|min_length[5]|max_length[70]');
-	    $id=$this->input->post('idservicio');
-
-	    if($this->form_validation->run()==FALSE){
-
-	    $this->editarServicio($id);
-	    //redirect('admin/editarProducto/'.$id);
-
-		}
-		else{
-
-			$datos['nombre'] =$this->input->post('nombre');
-			$datos['idtipo_servicio'] =$this->input->post('tipo');
-			$datos['descripcion'] =$this->input->post('descripcion');
-			//insertar los datos en la base de datos
-			$this->m_admin->updateService($datos,$id);
-			$this->editaservicio();
-		}
-
-	}
 
 
  	function regex_check($str){
@@ -310,42 +235,6 @@ class Admin extends CI_Controller {
 				}
 
 			}
-
-		function addServicio(){
-			 global $idservicio;
-			 $this->form_validation->set_message('required','El campo <b>%s</b> es requerido');
-
-			$this->form_validation->set_message('is_unique','El  <b>%s</b> ya esta existe Don Pancho !!!');
-
-			$this->form_validation->set_rules('nomservicio','Nombe del servicio','required|is_unique[servicio.nombre]|min_length[2]|max_length[60]');
-			$this->form_validation->set_rules('tipo','Tipo','required');
-			$this->form_validation->set_rules('desservicio','Descripcion del servicio','required|min_length[5]|max_length[70]');
-
-			if($this->form_validation->run()==FALSE){
-					$this->altaservicio();
-
-				}
-				else{
-
-					$datos['nombre'] =$this->input->post('nomservicio');
-					$datos['idtipo_servicio'] =$this->input->post('tipo');
-					$datos['descripcion'] =$this->input->post('desservicio');
-
-					//insertar los datos en la base de datos
-						$this->m_admin->insertarServicio($datos);
-
-						$id=$this->input->post('tipo');
-						$nomServ=$this->input->post('nomservicio');
-
-						$idservicio = $this->m_admin->idServicio($nomServ);
-						$nombre=$this->m_admin->nombreServicio($id);
-
-
-						$mostrar['nombre']=$nombre[0];
-						$mostrar['servicio']=$idservicio[0];
-						$this->altaimagenservicio($mostrar);
-				}
-		}
 
 
 	function upload_server($id,$tipo){
@@ -502,37 +391,6 @@ function thumbnail($id,$tipo){
 				$this->load->view('sbAdmin/login');
 		}
 	}
-
-function deleteService(){
-		$this->form_validation->set_message('required','El campo es requerido para que se pueda eliminar');
-		$this->form_validation->set_rules('nombre','Nombre','required');
-
-		if($this->form_validation->run()==FALSE){
-			$this->eliminaservicio();
-
-		}
-		else{
-
-			$idservicio=$this->input->post('nombre');
-			//	obtener el nombre de la imagen y eliminarla
-			//	del servidor
-			$this->m_admin->deletephotoservice($idservicio);
-			$this->m_admin->deleteservice($idservicio);
-			redirect('admin/eliminaservicio');
-		}
-
-	}
-
-  function eliminaservicio(){
-  	if (!$this->validaSesion() )
-			redirect('admin');
-		else {
-			$datos['servicios']=$this->m_admin->getServicio();
-			$this->load->view('sbAdmin/pages/eliminaServicio',$datos);
-
-		}
-	}
-
 
 
 }
