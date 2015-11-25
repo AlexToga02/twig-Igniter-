@@ -28,4 +28,9 @@ class Product extends CI_Controller {
 	{
 		$this->twig->display('index');
 	}
+
+	public function carrito()
+	{
+		$this->load->view('carrito');
+	}
 }
