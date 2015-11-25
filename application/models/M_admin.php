@@ -22,15 +22,7 @@ class M_admin extends CI_Model{
 		$query= $this->db->get('tipo_producto');
 		return $query->result_array();
 	}
-	function getTipoServicio(){
-		$query= $this->db->get('tipo_servicio');
-		return $query->result_array();
-	}
 
-	function getServicio(){
-		$query= $this->db->get('vista_servicio');
-		return $query->result_array();
-	}
 
 	function getUsuario(){
 		$query= $this->db->get('vista_usuario');

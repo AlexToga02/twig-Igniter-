@@ -349,7 +349,6 @@ function thumbnail($id,$tipo){
 			redirect('admin');
 		else {
 
-			$datos['servicios']= $this->m_admin->getServicio();
 			$datos['productos']=$this->m_admin->getProducto();
 			$datos['usuarios']=$this->m_admin->getUsuario();
 			$this->twig->display('sbAdmin/pages/tables',$datos);
