@@ -26,7 +26,14 @@ class Product extends CI_Controller {
    }
 	public function index()
 	{
-		$this->twig->display('index');
+		$articulos=$this->getArticulos();
+		// print_r($articulos);
+		$datos['articulos']=$articulos;
+		$this->twig->display('index',$datos);
+	}
+	function getArticulos(){
+		$query=$this->db->get('articulos');
+		return $query->result_array();
 	}
 	public function registrar()
 	{
