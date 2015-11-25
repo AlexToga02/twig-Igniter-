@@ -352,7 +352,8 @@ function thumbnail($id,$tipo){
 			$datos['servicios']= $this->m_admin->getServicio();
 			$datos['productos']=$this->m_admin->getProducto();
 			$datos['usuarios']=$this->m_admin->getUsuario();
-			$this->load->view('sbAdmin/pages/tables',$datos);
+			$this->twig->display('sbAdmin/pages/tables',$datos);
+
 
 		}
 

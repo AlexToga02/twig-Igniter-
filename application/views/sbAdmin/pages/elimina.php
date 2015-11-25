@@ -1,7 +1,7 @@
-<?php 
-    $this->load->view('sbAdmin/sections/header'); 
+<?php
+    $this->load->view('sbAdmin/sections/header');
 
-    $this->load->view('sbAdmin/sections/navigation'); 
+    $this->load->view('sbAdmin/sections/navigation');
 ?>
   <div id="page-wrapper" >
             <div class="row">
@@ -24,7 +24,7 @@
                                     <div class="col-lg-5">
                                            <div class="form-group">
                                                 <label>Escoja el Modelo del Producto a Eliminar:</label>
-                                                 <select name="modelo" id="selectmodelo" class="form-control">                   
+                                                 <select name="modelo" id="selectmodelo" class="form-control">
                                                         <option  value=" " >Seleccione Modelo a Eliminar..</option>
                                                         <?php foreach ($productos as $key => $producto){?>
                                                         <option  value="<?php echo $producto['idproducto']?>">
@@ -38,21 +38,21 @@
                                             </div>
                                             </div>
                                     </div>
-                                    
+
 
                                      <div class="row">
                                         <div class="col-lg-10">
-                                             
+
                                             <button type="submit" class="pull-right btn btn-default ">Eliminar</button>
-                                        
+
                                         </div>
-                                   
-                                    
+
+
                                     </div>
-                                    
-                                        
+
+
                                 </form>
-                            </div>                            
+                            </div>
                             <!-- /.row (nested) -->
                         </div>
                         <!-- /.panel-body -->
@@ -91,6 +91,6 @@
     });
     </script>
 
-        
+
 
 </body>
