@@ -25,3 +25,39 @@
       </div>
     </nav>
   {% endblock %}
+  {% block contenido %}
+     <div class="slider-wrapper">
+       <label for="">algo</label>
+          <div id="slideshow0" class="nivoSlider">
+                          <a href="#"><img src="imagenes/b1.jpg" alt="slideshow-4" /></a>
+                          <a href="#"><img src="imagenes/b2.jpg" alt="slideshow-4" /></a>
+
+                    </div>
+          </div>
+          <script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
+          <script type="text/javascript">
+                $(window).load(function() {
+                  $('#slideshow0').nivoSlider();
+              });
+          </script><h1 style="display: none;">Electricos de la villa</h1>
+        <div class="box">
+          <div class="box-heading">Productos mas buscados</div>
+          <div class="box-content">
+            <div class="box-product">
+              {% for articulo in articulos %}
+                <div>
+              <div class="image"><a href="#"><img src="{{articulo.IMAGEN}}"  /></a></div>
+              <div class="name"><a href="#">{{articulo.NOMBRE}}</a></div>
+              <div class="price">
+                ${{articulo.PRECIODELISTA}}           </div>
+                  <div class="rating"><img src="catalog/view/theme/bigshop/image/stars-5.png" alt="Based on 1 reviews." /></div>
+                  {%if user%}
+                     <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('40');" class="button" /></div>
+                  {%endif%}
+              </div>
+              {% endfor %}
+
+            </div>
+          </div>
+        </div>
+  {% endblock %}

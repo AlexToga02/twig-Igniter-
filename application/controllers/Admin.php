@@ -8,17 +8,13 @@ class Admin extends CI_Controller {
 		parent::__construct();
 		$this->load->model('m_admin');
 		$this->load->library('Twig');
-
-
-
-
 	}
 
 
 	public function index()
 	{
 		if(!$this->validaSesion()){
-			$this->load->view('sbAdmin/login');
+			$this->twig->display('sbAdmin/login');
 		}else{
 		   redirect('admin/dashboard');
 

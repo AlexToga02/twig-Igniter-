@@ -5,11 +5,27 @@ class M_admin extends CI_Model{
 		parent::__construct();
 	}
 
+	function getArticulos(){
+		$query=$this->db->get('articulos');
+		return $query->result_array();
+	}
+
+	function newclient($datos){
+			  $this->db->insert('cliente',$datos);
+	}
 	function validaUsuario($username,$password){
 		$this->db->where('username',$username);
 		$this->db->where('password',$password);
 
 		$query = $this->db->get('usuario');
+		return $query->result_array();
+	}
+
+	function validalogin($user,$contrasena){
+		$this->db->where('user',$user);
+		$this->db->where('contrasena',$contrasena);
+
+		$query = $this->db->get('cliente');
 		return $query->result_array();
 	}
 

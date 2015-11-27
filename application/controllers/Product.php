@@ -6,20 +6,18 @@ class Product extends CI_Controller {
 	 public function __construct()
    {
         parent::__construct();
+				$this->load->model('m_admin');
 				$this->load->library('Twig');
         // Your own constructor code
    }
 	public function index()
 	{
-		$articulos=$this->getArticulos();
+		$articulos=$this->m_admin->getArticulos();
 		// print_r($articulos);
 		$datos['articulos']=$articulos;
 		$this->twig->display('index',$datos);
 	}
-	function getArticulos(){
-		$query=$this->db->get('articulos');
-		return $query->result_array();
-	}
+
 	public function registrar()
 	{
 		$datos['nombre']=$this->input->post('name');
@@ -27,11 +25,9 @@ class Product extends CI_Controller {
 		$datos['user']=$this->input->post('username');
 		$datos['contrasena']=$this->input->post('passwd');
 		//print_r($datos);
-	  $this->db->insert('cliente',$datos);
-		$this->twig->display('index');
-		//$this->load->view('index.twig');
-		//$this->twig->render('index.twig');
-		//redirect();
+		$articulos=$this->m_admin->getArticulos();
+		// print_r($articulos);
+		redirect("/");
 	}
 	/*-------------------------------------------------------Usuarios-------------------.-------------------------------------------*/
 
@@ -41,7 +37,8 @@ class Product extends CI_Controller {
 			// print_r($user);
 			$contrasena =$this->input->post('clave');
 			// print_r($contrasena);
-			$res = $this->validaUsuario($user,$contrasena);
+			$res = $this->m_admin->validalogin($user,$contrasena);
+
 			//print_r($res);
 			if(!empty($res)){
 				$datos = array(
@@ -49,29 +46,19 @@ class Product extends CI_Controller {
 					'nombre'=>$res[0]['nombre'],
 					'categoria'=>0
 				);
+					$datos['articulos']=$this->m_admin->getArticulos();
 				//print_r($datos);
 				$this->session->set_userdata($datos);
+
 				$this->twig->display('login',$datos);
+
+
+
 
 			} else{$this->twig->display('index');}
 		}
 
-		function validaUsuario($user,$contrasena){
-			$this->db->where('user',$user);
-			$this->db->where('contrasena',$contrasena);
-
-			$query = $this->db->get('cliente');
-			return $query->result_array();
-		}
-
 		function logout(){
-		/*	$datos = array(
-				'cuenta'=>null,
-				'nombre'=>null,
-				'categoria'=>null
-			);
-			$this->session->set_userdata($datos);
-			$this->load->view('inicio');*/
 			$this->session->sess_destroy();
 			$this->twig->display('index');
 		}
