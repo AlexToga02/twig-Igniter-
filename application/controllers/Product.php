@@ -24,9 +24,7 @@ class Product extends CI_Controller {
 		$datos['email']=$this->input->post('email');
 		$datos['user']=$this->input->post('username');
 		$datos['contrasena']=$this->input->post('passwd');
-		//print_r($datos);
 		$articulos=$this->m_admin->getArticulos();
-		// print_r($articulos);
 		redirect("/");
 	}
 	/*-------------------------------------------------------Usuarios-------------------.-------------------------------------------*/
