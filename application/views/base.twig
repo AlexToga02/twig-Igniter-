@@ -90,7 +90,7 @@
                    <a href="">(Usuario</a> <a href=""> Cerrar)</a>
                   {% endblock %}
             </div>
-             <div id="logo"><a href=""><img src="imagenes/logo_.png" title="Kiko Ramirez" alt="Kiko Ramirez" /></a></div>
+             <div id="logo"><a href="index.php/product/inicio"><img src="imagenes/logo_.png" title="Kiko Ramirez" alt="Kiko Ramirez" /></a></div>
             <div id="search">
                <form action="resultados.php" method="post" enctype="multipart/form-data" class="form-horizontal">
 
@@ -288,16 +288,19 @@
           <div class="box-product">
             {% for articulo in articulos %}
               <div>
-      			<div class="image"><a href="#"><img src="{{articulo.IMAGEN}}"  /></a></div>
-      			<div class="name"><a href="#">{{articulo.NOMBRE}}</a></div>
-      			<div class="price">
-      				${{articulo.PRECIODELISTA}}           </div>
-      					<div class="rating"><img src="catalog/view/theme/bigshop/image/stars-5.png" alt="Based on 1 reviews." /></div>
                 {%if user%}
-      			       <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('40');" class="button" /></div>
+                   <a class="btn btn-warning btn-xs pull-right" role="button" href="index.php/product/agregarFav/{{articulo.ARTICULO_ID}}"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
                 {%endif%}
-            </div>
-            {% endfor %}
+          			<div class="image"><a href="#"><img src="{{articulo.IMAGEN}}"  /></a></div>
+          			<div class="name"><a href="#">{{articulo.NOMBRE}}</a></div>
+          			<div class="price">
+          				${{articulo.PRECIODELISTA}}           </div>
+          					<div class="rating"><img src="catalog/view/theme/bigshop/image/stars-5.png" alt="Based on 1 reviews." /></div>
+                    {%if user%}
+          			       <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('40');" class="button" /></div>
+                    {%endif%}
+                </div>
+                {% endfor %}
                   <!-- <div>
                       <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=49"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/samsung_tab_1-152x152.jpg" alt="Chair Swing" /></a></div>
                       <div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=49">Chair Swing</a></div>

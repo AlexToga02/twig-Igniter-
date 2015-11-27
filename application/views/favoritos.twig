@@ -26,3 +26,28 @@
       </div>
     </nav>
   {% endblock %}
+  {% block contenido %}
+  <div class="box">
+    <div class="box-heading">Marcadores</div>
+    <div class="box-content">
+      <div class="box-product">
+        {% for articulo in articulos %}
+          <div>
+            {%if user%}
+               <a class="btn btn-danger btn-xs pull-right" role="button" href="index.php/product/borrarFav/{{articulo.idmarcador}}"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></a>
+            {%endif%}
+            <div class="image"><a href="#"><img src="{{articulo.Imagen}}"  /></a></div>
+            <div class="name"><a href="#">{{articulo.Nombre}}</a></div>
+            <div class="price">
+              ${{articulo.Precio}}           </div>
+                <div class="rating"><img src="catalog/view/theme/bigshop/image/stars-5.png" alt="Based on 1 reviews." /></div>
+                {%if user%}
+                   <div class="cart"><input type="button" value="Add to Cart" onclick="addToCart('40');" class="button" /></div>
+
+                {%endif%}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+  {% endblock %}
