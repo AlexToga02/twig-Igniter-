@@ -57,29 +57,29 @@
       {% endfor %}
     </select>
     <label for="">Colonia</label>
-    <input type="text" name="colo" value="">
+    <input type="text" name="colo" value="{{cliente.colonia}}">
     <br><br>
     <label for="">Calle</label>
-    <input type="text" name="street" value="">
+    <input type="text" name="street" value="{{cliente.calle}}">
     <label for="">Numero</label>
-    <input type="text" name="no" value="">
+    <input type="text" name="no" value="{{cliente.numero}}">
     <label for="">Poblacion</label>
-    <input type="text" name="pob" value="">
+    <input type="text" name="pob" value="{{cliente.poblacion}}">
     <br><br>
     <label for="">Referencia</label>
-    <input type="text" name="ref" value="">
+    <input type="text" name="ref" value="{{cliente.referencia}}">
     <label for="">Telefono</label>
-    <input type="text" name="phone" value="">
+    <input type="text" name="phone" value="{{cliente.telefono}}">
     <label for="">Codigo postal</label>
-    <input type="text" name="cp" value="">
+    <input type="text" name="cp" value="{{cliente.cp}}">
     <br><br>
     <label for="">Correo</label>
     <input type="text" name="emal" value="{{cliente.email}}">
     <label for="">RFC</label>
-    <input type="text" name="rfc" value="">
+    <input type="text" name="rfc" value="{{cliente.rfc}}">
     <br><br>
     <label for="">Notas</label>
-    <textarea name="nota" rows="8" cols="40"></textarea>
+    <textarea name="nota" rows="8" cols="40">{{cliente.notas}}</textarea>
     <br><br>
     <button type="submit" name="button">Actualizar</button>
 
