@@ -71,7 +71,7 @@ a:hover {
  #example {
     background: #32689A;
     color: #fff;
-    height: 200px;
+    
 }
 
 #header a, #example a {
@@ -114,8 +114,8 @@ a:hover {
 
 #example fieldset {
     position: relative;
-    min-width: 9em;
-    height: 9em;
+    min-width: 12em;
+    height: 15em;
     margin: 0;
     padding: 10px;
     background: #5a85ad;
@@ -128,12 +128,12 @@ a:hover {
     bottom: 10px;
 }
 
-/*#example .container {
+#example .container {
     overflow: auto;
     display: block;
-    width: 100%;
+    width: 80%;
     padding: 10px 0;
-}*/
+}
 
 #footer {
     margin-top: 50px;
@@ -154,9 +154,9 @@ a:hover {
         padding-right: 10px;
     }
 
-    /*#example .container {
+    #example .container {
         height: 35em;
         overflow: hidden;
-    }*/
+    }
 
 }
