@@ -30,6 +30,15 @@ CREATE TABLE `almacen` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `almacen`
+--
+
+LOCK TABLES `almacen` WRITE;
+/*!40000 ALTER TABLE `almacen` DISABLE KEYS */;
+/*!40000 ALTER TABLE `almacen` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `articulos`
 --
 
@@ -44,13 +53,23 @@ CREATE TABLE `articulos` (
   `EXISTENCIA` int(11) DEFAULT NULL,
   `FECHA_HORA_ULT_MODIF` date DEFAULT NULL,
   `LINEA_ARTICULO_ID` int(11) DEFAULT NULL,
-  `IMAGEN` varchar(100) DEFAULT NULL,
+  `IMAGEN` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`ARTICULO_ID`),
   UNIQUE KEY `CLAVE_UNIQUE` (`CLAVE`),
   KEY `articulo_linea_idx` (`LINEA_ARTICULO_ID`),
   CONSTRAINT `articulo_linea` FOREIGN KEY (`LINEA_ARTICULO_ID`) REFERENCES `lineas_articulos` (`LINEA_ARTICULO_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `articulos`
+--
+
+LOCK TABLES `articulos` WRITE;
+/*!40000 ALTER TABLE `articulos` DISABLE KEYS */;
+INSERT INTO `articulos` VALUES (5073,'Chair Swing','QAAPII',236.99,0,NULL,1320,'http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/samsung_tab_1-152x152.jpg'),(5079,'Casual Saddle Shoes','QARO',119.5,0,NULL,1322,'http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/hp_1-152x152.jpg'),(5085,'Bag Lady','QCLO',119.5,0,NULL,1323,'http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/bag-152x152.jpg'),(5086,'Eyewear Eyeglasses','EEY0',119.5,0,NULL,1323,'http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/ipod_touch_1-152x152.jpg'),(5087,'Nail Polish','NAPO',119.5,0,NULL,1322,'http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/ipod_shuffle_1-152x152.jpg'),(5088,'Sports Watch Band',NULL,0,5,NULL,1320,'http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/samsung_syncmaster_941bw-152x152.jpg');
+/*!40000 ALTER TABLE `articulos` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `ciudad`
@@ -63,8 +82,18 @@ CREATE TABLE `ciudad` (
   `idCiudad` int(11) NOT NULL AUTO_INCREMENT,
   `Ciudad` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idCiudad`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ciudad`
+--
+
+LOCK TABLES `ciudad` WRITE;
+/*!40000 ALTER TABLE `ciudad` DISABLE KEYS */;
+INSERT INTO `ciudad` VALUES (1,'Colima'),(2,'Villa de Alvarez');
+/*!40000 ALTER TABLE `ciudad` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `cliente`
@@ -77,7 +106,7 @@ CREATE TABLE `cliente` (
   `idCliente` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(45) DEFAULT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `zonacliente` varchar(45) DEFAULT NULL,
+  `zonacliente` int(11) DEFAULT NULL,
   `estado_id` int(11) DEFAULT NULL,
   `ciudad_id` int(11) DEFAULT NULL,
   `calle` varchar(45) DEFAULT NULL,
@@ -96,8 +125,18 @@ CREATE TABLE `cliente` (
   KEY `ciudad_cliente_idx` (`ciudad_id`),
   CONSTRAINT `ciudad_cliente` FOREIGN KEY (`ciudad_id`) REFERENCES `ciudad` (`idCiudad`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `estado_cliente` FOREIGN KEY (`estado_id`) REFERENCES `estado` (`idEstado`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cliente`
+--
+
+LOCK TABLES `cliente` WRITE;
+/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (3,'natanahel','Felipe Natanahel',1,1,1,'Condor',85,'Santa ','Colima','','3121628989','28037','felipe_lopez13@hotmail.com','','algo','234'),(7,'felipe','dfsdf',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'neocid.natanahel@gmail.com',NULL,NULL,'234');
+/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `estado`
@@ -110,8 +149,36 @@ CREATE TABLE `estado` (
   `idEstado` int(11) NOT NULL AUTO_INCREMENT,
   `Estado` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idEstado`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `estado`
+--
+
+LOCK TABLES `estado` WRITE;
+/*!40000 ALTER TABLE `estado` DISABLE KEYS */;
+INSERT INTO `estado` VALUES (1,'Colima');
+/*!40000 ALTER TABLE `estado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary table structure for view `fav`
+--
+
+DROP TABLE IF EXISTS `fav`;
+/*!50001 DROP VIEW IF EXISTS `fav`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `fav` (
+  `idmarcador` tinyint NOT NULL,
+  `Cliente` tinyint NOT NULL,
+  `Producto` tinyint NOT NULL,
+  `Nombre` tinyint NOT NULL,
+  `Imagen` tinyint NOT NULL,
+  `Precio` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Table structure for table `forma_pago`
@@ -128,6 +195,15 @@ CREATE TABLE `forma_pago` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `forma_pago`
+--
+
+LOCK TABLES `forma_pago` WRITE;
+/*!40000 ALTER TABLE `forma_pago` DISABLE KEYS */;
+/*!40000 ALTER TABLE `forma_pago` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `grupos_articulos`
 --
 
@@ -141,6 +217,16 @@ CREATE TABLE `grupos_articulos` (
   PRIMARY KEY (`idGRUPOS_ARTICULOS`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1301 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `grupos_articulos`
+--
+
+LOCK TABLES `grupos_articulos` WRITE;
+/*!40000 ALTER TABLE `grupos_articulos` DISABLE KEYS */;
+INSERT INTO `grupos_articulos` VALUES (1299,'MUFRANCE',NULL),(1300,'BOLSAS',NULL);
+/*!40000 ALTER TABLE `grupos_articulos` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `lineas_articulos`
@@ -159,6 +245,45 @@ CREATE TABLE `lineas_articulos` (
   CONSTRAINT `Lineas-Grupos` FOREIGN KEY (`GRUPO_LINEA_ID`) REFERENCES `grupos_articulos` (`idGRUPOS_ARTICULOS`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=1324 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `lineas_articulos`
+--
+
+LOCK TABLES `lineas_articulos` WRITE;
+/*!40000 ALTER TABLE `lineas_articulos` DISABLE KEYS */;
+INSERT INTO `lineas_articulos` VALUES (1320,'CUCHARAS MUFRANCE',1299,NULL),(1321,'TENEDORES MUFRANCE',1299,NULL),(1322,'PLANA REYMA',1300,NULL),(1323,'BOLSA POLIPROPILENO',1300,NULL);
+/*!40000 ALTER TABLE `lineas_articulos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `marcador`
+--
+
+DROP TABLE IF EXISTS `marcador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `marcador` (
+  `idmarcador` int(11) NOT NULL AUTO_INCREMENT,
+  `idcliente` int(11) DEFAULT NULL,
+  `idproducto` int(11) DEFAULT NULL,
+  PRIMARY KEY (`idmarcador`),
+  KEY `marcador_cliente_idx` (`idcliente`),
+  KEY `marcador_articulo_idx` (`idproducto`),
+  CONSTRAINT `marcador_articulo` FOREIGN KEY (`idproducto`) REFERENCES `articulos` (`ARTICULO_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `marcador_cliente` FOREIGN KEY (`idcliente`) REFERENCES `cliente` (`idCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `marcador`
+--
+
+LOCK TABLES `marcador` WRITE;
+/*!40000 ALTER TABLE `marcador` DISABLE KEYS */;
+INSERT INTO `marcador` VALUES (3,3,5086),(4,7,5073),(6,3,5088);
+/*!40000 ALTER TABLE `marcador` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `pedidosdetalle`
@@ -184,6 +309,15 @@ CREATE TABLE `pedidosdetalle` (
   CONSTRAINT `pedido_articulo` FOREIGN KEY (`CLAVE_ART`, `ARTICULO_ID`) REFERENCES `articulos` (`CLAVE`, `ARTICULO_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedidosdetalle`
+--
+
+LOCK TABLES `pedidosdetalle` WRITE;
+/*!40000 ALTER TABLE `pedidosdetalle` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pedidosdetalle` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `pedidosencabezado`
@@ -216,6 +350,34 @@ CREATE TABLE `pedidosencabezado` (
   CONSTRAINT `pedido_pago` FOREIGN KEY (`FORMA_COBRO_ID`) REFERENCES `forma_pago` (`idForma_Pago`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedidosencabezado`
+--
+
+LOCK TABLES `pedidosencabezado` WRITE;
+/*!40000 ALTER TABLE `pedidosencabezado` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pedidosencabezado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Final view structure for view `fav`
+--
+
+/*!50001 DROP TABLE IF EXISTS `fav`*/;
+/*!50001 DROP VIEW IF EXISTS `fav`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `fav` AS (select `m`.`idmarcador` AS `idmarcador`,`m`.`idcliente` AS `Cliente`,`m`.`idproducto` AS `Producto`,`a`.`NOMBRE` AS `Nombre`,`a`.`IMAGEN` AS `Imagen`,`a`.`PRECIODELISTA` AS `Precio` from (`marcador` `m` join `articulos` `a` on((`a`.`ARTICULO_ID` = `m`.`idproducto`)))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -226,4 +388,4 @@ CREATE TABLE `pedidosencabezado` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-11-24 21:37:49
+-- Dump completed on 2015-12-02 16:05:45
