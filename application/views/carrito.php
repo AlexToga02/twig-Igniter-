@@ -14,35 +14,34 @@
 
 <div id="wrapper">
 
-                  <section id="example">
-                  <div class="container">
-                    <br>
-                    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" class="last">
-                            <input type="hidden" name="business" value="example@example.com" />
-                            <input type="hidden" name="cmd" value="_cart" />
-                            <input type="hidden" name="display" value="1" />
-                            <input type="submit" name="submit" value="Ver articluos en carrito" class="button" />
-                    </form>
-                    <br>
-                    <h3>Productos</h3>
-                    <br>
-                    <div class="row ">
-                      <div class="col-md-2">
-                        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
-                            <fieldset>
-                                <input type="hidden" name="cmd" value="_cart" />
-                                <input type="hidden" name="add" value="1" />
-                                <input type="hidden" name="business" value="example@example.com" />
-                                <input type="hidden" name="item_name" value="Iphone 1" />
-                                <input type="hidden" name="item_number" value="Iphone 1" />
-                                <input type="hidden" name="amount" value="1120.68" />
-                                <input type="hidden" name="quantity" value="1" />
-                                <input type="hidden" name="currency_code" value="MXN" />
-                                <input type="hidden" name="return" value="http://www.minicartjs.com/?success" />
-                                <input type="hidden" name="cancel_return" value="http://www.minicartjs.com/?cancel" />
-                                <strong><div class="name"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=40">iPhone</a></div></strong>
-                                <ul>
-                                  <div class="image"><a href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=40"><img src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/iphone_1-152x152.jpg" alt="iPhone" /></a></div>
+                  <section id="example"> <div class="container"> <br> <form
+                  action="https://www.sandbox.paypal.com/cgi-bin/webscr"
+                  method="post" class="last"> <input type="hidden"
+                  name="business" value="example@example.com" /> <input
+                  type="hidden" name="cmd" value="_cart" /> <input type="hidden"
+                  name="display" value="1" /> <input type="submit" name="submit"
+                  value="Ver articluos en carrito" class="button" /> </form>
+                  <br> <h3>Productos</h3> <br> <div class="row "> <div
+                  class="col-md-2"> <form
+                  action="https://www.sandbox.paypal.com/cgi-bin/webscr"
+                  method="post"> <fieldset> <input type="hidden" name="cmd"
+                  value="_cart" /> <input type="hidden" name="add" value="1" />
+                  <input type="hidden" name="business" value="alexandro_02-facilitator@hotmail.com" />
+                  <input type="hidden" name="item_name" value="Iphone 1" />
+                  <input type="hidden" name="item_number" value="Iphone 1" />
+                  <input type="hidden" name="amount" value="1120.68" /> <input
+                  type="hidden" name="quantity" value="1" /> <input
+                  type="hidden" name="currency_code" value="MXN" /> <input
+                  type="hidden" name="return"
+                  value="http://www.minicartjs.com/?success" /> <input
+                  type="hidden" name="cancel_return"
+                  value="http://www.minicartjs.com/?cancel" /> <strong><div
+                  class="name"><a
+                  href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=40">iPhone</a></div></strong>
+                  <ul> <div class="image"><a
+                  href="http://demo.harnishdesign.net/opencart/bigshop/index.php?route=product/product&amp;product_id=40"><img
+                  src="http://demo.harnishdesign.net/opencart/bigshop/image/cache/data/demo/iphone_1-152x152.jpg"
+                  alt="iPhone" /></a></div>
 
                                   <li>Price $1120.68 </li>
                                 </ul>
@@ -56,7 +55,7 @@
                             <fieldset>
                                 <input type="hidden" name="cmd" value="_cart" />
                                 <input type="hidden" name="add" value="1" />
-                                <input type="hidden" name="business" value="example@example.com" />
+                                <input type="hidden" name="business" value="alexandro_02-facilitator@hotmail.com" />
                                 <input type="hidden" name="item_name" value="Iphone 2" />
                                 <input type="hidden" name="item_number" value="Iphone 2" />
                                 <input type="hidden" name="amount" value="2120.68" />
@@ -80,7 +79,7 @@
                             <fieldset>
                                 <input type="hidden" name="cmd" value="_cart" />
                                 <input type="hidden" name="add" value="1" />
-                                <input type="hidden" name="business" value="example@example.com" />
+                                <input type="hidden" name="business" value="alexandro_02-facilitator@hotmail.com" />
                                 <input type="hidden" name="item_name" value="Iphone 4" />
                                 <input type="hidden" name="item_number" value="Iphone 4" />
                                 <input type="hidden" name="amount" value="3120.68" />
@@ -104,7 +103,7 @@
                             <fieldset>
                                 <input type="hidden" name="cmd" value="_cart" />
                                 <input type="hidden" name="add" value="1" />
-                                <input type="hidden" name="business" value="example@example.com" />
+                                <input type="hidden" name="business" value="alexandro_02-facilitator@hotmail.com" />
                                 <input type="hidden" name="item_name" value="Iphone 5" />
                                 <input type="hidden" name="item_number" value="Iphone 5" />
                                 <input type="hidden" name="amount" value="5120.68" />
@@ -132,7 +131,7 @@
                             <fieldset>
                                 <input type="hidden" name="cmd" value="_cart" />
                                 <input type="hidden" name="add" value="1" />
-                                <input type="hidden" name="business" value="example@example.com" />
+                                <input type="hidden" name="business" value="alexandro_02-facilitator@hotmail.com" />
                                 <input type="hidden" name="item_name" value="Motor A" />
                                 <input type="hidden" name="amount" value="3.00" />
                                 <input type="hidden" name="discount_amount" value="1.00" />
@@ -153,7 +152,7 @@
                             <fieldset>
                                 <input type="hidden" name="cmd" value="_cart" />
                                 <input type="hidden" name="add" value="1" />
-                                <input type="hidden" name="business" value="example@example.com" />
+                                <input type="hidden" name="business" value="alexandro_02-facilitator@hotmail.com" />
                                 <input type="hidden" name="item_name" value="Motor B" />
                                 <input type="hidden" name="amount" value="2.00" />
                                 <input type="hidden" name="discount_amount" value="1.00" />
@@ -174,7 +173,7 @@
                             <fieldset>
                                 <input type="hidden" name="cmd" value="_cart" />
                                 <input type="hidden" name="add" value="1" />
-                                <input type="hidden" name="business" value="example@example.com" />
+                                <input type="hidden" name="business" value="alexandro_02-facilitator@hotmail.com" />
                                 <input type="hidden" name="item_name" value="Motor C" />
                                 <input type="hidden" name="amount" value="3.00" />
                                 <input type="hidden" name="discount_amount" value="2.00" />
@@ -195,7 +194,7 @@
                             <fieldset>
                                 <input type="hidden" name="cmd" value="_cart" />
                                 <input type="hidden" name="add" value="1" />
-                                <input type="hidden" name="business" value="example@example.com" />
+                                <input type="hidden" name="business" value="alexandro_02-facilitator@hotmail.com" />
                                 <input type="hidden" name="item_name" value="Motor D" />
                                 <input type="hidden" name="amount" value="5.00" />
                                 <input type="hidden" name="discount_amount" value="3.00" />
@@ -221,7 +220,7 @@
                                   <fieldset>
                                       <input type="hidden" name="cmd" value="_cart" />
                                       <input type="hidden" name="add" value="1" />
-                                      <input type="hidden" name="business" value="example@example.com" />
+                                      <input type="hidden" name="business" value="alexandro_02-facilitator@hotmail.com" />
                                       <input type="hidden" name="item_name" value="Tornillo" />
                                       <input type="hidden" name="quantity" value="1" />
                                       <input type="hidden" name="currency_code" value="MXN" />
@@ -255,7 +254,7 @@
                                   <fieldset>
                                       <input type="hidden" name="cmd" value="_cart" />
                                       <input type="hidden" name="add" value="1" />
-                                      <input type="hidden" name="business" value="example@example.com" />
+                                      <input type="hidden" name="business" value="alexandro_02-facilitator@hotmail.com" />
                                       <input type="hidden" name="item_name" value="Tornillo" />
                                       <input type="hidden" name="quantity" value="1" />
                                       <input type="hidden" name="currency_code" value="MXN" />
@@ -321,7 +320,7 @@
                                   <fieldset>
                                       <input type="hidden" name="cmd" value="_cart" />
                                       <input type="hidden" name="add" value="1" />
-                                      <input type="hidden" name="business" value="example@example.com" />
+                                      <input type="hidden" name="business" value="alexandro_02-facilitator@hotmail.com" />
                                       <input type="hidden" name="item_name" value="Pony" />
                                       <input type="hidden" name="quantity" value="1" />
                                       <input type="hidden" name="currency_code" value="MXN" />
